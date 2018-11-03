@@ -1,11 +1,11 @@
-package xyz.devosmium.rl.one.interfaces;
+package xyz.devosmium.rl.one.screens;
 
 import java.awt.event.KeyEvent;
 
 import asciiPanel.AsciiPanel;
 
-public interface IScreen {
+public interface Screen {
 	public void displayOutput(AsciiPanel terminal);
 	
-	public IScreen respondToUserInput(KeyEvent key);
+	public Screen respondToUserInput(KeyEvent key);
 }
