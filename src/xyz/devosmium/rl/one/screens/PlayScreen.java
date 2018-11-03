@@ -1,6 +1,9 @@
 package xyz.devosmium.rl.one.screens;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
+
 import asciiPanel.AsciiPanel;
 import xyz.devosmium.rl.one.Creature;
 import xyz.devosmium.rl.one.CreatureFactory;
@@ -9,6 +12,7 @@ import xyz.devosmium.rl.one.WorldBuilder;
 
 
 public class PlayScreen implements Screen {
+	private List<String> messages;
 	private World world;
 	private Creature player;
 	private int screenWidth;
@@ -18,13 +22,13 @@ public class PlayScreen implements Screen {
 		screenWidth = 80;
 		screenHeight = 21;
 		createWorld();
-		
+	    messages = new ArrayList<String>();
 		CreatureFactory creatureFactory = new CreatureFactory(world);
 		createCreatures(creatureFactory);
 	}
 	
 	private void createCreatures(CreatureFactory creatureFactory){
-		player = creatureFactory.newPlayer();
+		player = creatureFactory.newPlayer(messages);
 		
 		for (int i = 0; i < 8; i++){
 			creatureFactory.newFungus();
@@ -49,6 +53,9 @@ public class PlayScreen implements Screen {
 		displayTiles(terminal, left, top);
 		
 		terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 22);
+		String statTicker = String.format("%3d/%3d hp", player.hp(), player.maxHp());
+		terminal.write(statTicker, 1,23);
+		displayMessages(terminal, messages);
 	}
 
 	private void displayTiles(AsciiPanel terminal, int left, int top) {
@@ -88,5 +95,12 @@ public class PlayScreen implements Screen {
 		world.update();
 		
 		return this;
+	}
+	private void displayMessages(AsciiPanel terminal, List<String> messages) {
+		int top = screenHeight - messages.size();
+		for (int i=0; i < messages.size(); i++) {
+			terminal.writeCenter(messages.get(i), top+1);
+		}
+		messages.clear();
 	}
 }

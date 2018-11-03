@@ -42,6 +42,7 @@ public class ApplicationMain extends JFrame implements KeyListener {
 	public void keyTyped(KeyEvent e) { }
 	
 	public static void main(String[] args) {
+		System.out.println("INFO: Starting up");
 		ApplicationMain app = new ApplicationMain();
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		app.setVisible(true);
