@@ -4,9 +4,13 @@ import java.awt.Color;
 import asciiPanel.AsciiPanel;
 
 public enum Tile {
+	// Basic Tiles
 	FLOOR((char)250, AsciiPanel.yellow),
 	WALL((char)177, AsciiPanel.yellow),
-	BOUNDS('x', AsciiPanel.brightBlack);
+	BOUNDS('x', AsciiPanel.brightBlack),
+	// Staircase
+	STAIRS_UP('>', AsciiPanel.white),
+	STAIRS_DOWN('<', AsciiPanel.white);
 	
 	private char glyph;
 	public char glyph() { return glyph; }
