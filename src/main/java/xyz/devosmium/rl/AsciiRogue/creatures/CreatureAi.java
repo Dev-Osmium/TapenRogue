@@ -12,7 +12,14 @@ public class CreatureAi {
 		this.creature.setCreatureAi(this);
 	}
 	
-	public void onEnter(int x, int y, int i, Tile tile){
+	public void onEnter(int x, int y, int z, Tile tile){
+		if (tile.isGround()) {
+			creature.x = x;
+			creature.y = y;
+			creature.z = z;
+		} else {
+			creature.doAction("bump into a wall");
+		}
 	}
 	
 	public void onUpdate(){
@@ -22,7 +29,7 @@ public class CreatureAi {
 		
 	}
 
-
+	
 	public boolean canSee(int wx, int wy, int wz) {
 		if (creature.z != wz)
 			return false;
