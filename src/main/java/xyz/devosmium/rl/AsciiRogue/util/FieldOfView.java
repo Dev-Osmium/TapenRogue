@@ -13,6 +13,7 @@ public class FieldOfView {
         return z == depth && x >= 0 && y >= 0 && x < visible.length && y < visible[0].length && visible[x][y];
     }
 
+
     private Tile[][][] tiles;
     public Tile tile(int x, int y, int z){
         return tiles[x][y][z];

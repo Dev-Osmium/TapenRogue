@@ -1,4 +1,7 @@
-package xyz.devosmium.rl.AsciiRogue.creatures;
+package xyz.devosmium.rl.AsciiRogue.creatures.ai;
+
+import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
+import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
 
 public class FungusAi extends CreatureAi {
 	private CreatureFactory factory;
