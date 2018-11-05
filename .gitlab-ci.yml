@@ -5,7 +5,12 @@ before_script:
 - chmod +x default
 - default -V
 
+stages:
+ - build
+ - deploy
+
 build:
+  stage: build
   script:
     - mvn install
     - mvn clean
@@ -17,6 +22,7 @@ build:
     - AsciiRogue.tar
     - AsciiRogue.zip
 deploy:
+  stage: deploy
   script:
     - default -V
     - default push AsciiRogue.tar Dev-Osmium/AsciiRogue:latest
