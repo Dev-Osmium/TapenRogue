@@ -10,6 +10,7 @@ import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.WorldBuilder;
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
+import xyz.devosmium.rl.AsciiRogue.items.ItemFactory;
 import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
 
 public class PlayScreen implements Screen {
@@ -28,7 +29,9 @@ public class PlayScreen implements Screen {
 		fov = new FieldOfView(world);
 
 		CreatureFactory creatureFactory = new CreatureFactory(world);
+		ItemFactory itemFactory = new ItemFactory(world);
 		createCreatures(creatureFactory);
+		createItems(itemFactory);
 	}
 
 	private void createCreatures(CreatureFactory creatureFactory){
@@ -40,6 +43,13 @@ public class PlayScreen implements Screen {
 			}
 			for (int i = 0; i < 20; i++){
 				creatureFactory.newBat(z);
+			}
+		}
+	}
+	private void createItems(ItemFactory factory) {
+		for (int z = 0; z < world.depth(); z++) {
+			for (int i = 0; i < world.width() * world.height() / 20; i++) {
+				factory.newRock(z);
 			}
 		}
 	}
@@ -112,6 +122,7 @@ public class PlayScreen implements Screen {
 		switch (key.getKeyChar()){
 			case '<': player.moveBy( 0, 0, -1); break;
 			case '>': player.moveBy( 0, 0, 1); break;
+			case 'g': player.pickup(); break;
 		}
 
 		world.update();
