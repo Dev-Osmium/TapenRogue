@@ -7,3 +7,4 @@ target/
 bin/
 AsciiRogue.tar
 AsciiRogue.zip
+dependency-reduced-pom.xml
