@@ -1,12 +1,12 @@
-package xyz.devosmium.rl.AsciiRogue;
+package xyz.devosmium.rl.asciirogue;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
-import xyz.devosmium.rl.AsciiRogue.items.Item;
-import xyz.devosmium.rl.AsciiRogue.util.Point;
+import xyz.devosmium.rl.asciirogue.creatures.Creature;
+import xyz.devosmium.rl.asciirogue.items.Item;
+import xyz.devosmium.rl.asciirogue.util.Point;
 
 public class World {
 	private Tile[][][] tiles;

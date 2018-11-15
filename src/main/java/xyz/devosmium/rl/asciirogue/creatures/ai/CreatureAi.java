@@ -1,9 +1,9 @@
-package xyz.devosmium.rl.AsciiRogue.creatures.ai;
+package xyz.devosmium.rl.asciirogue.creatures.ai;
 
-import xyz.devosmium.rl.AsciiRogue.Tile;
-import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
-import xyz.devosmium.rl.AsciiRogue.util.Line;
-import xyz.devosmium.rl.AsciiRogue.util.Point;
+import xyz.devosmium.rl.asciirogue.Tile;
+import xyz.devosmium.rl.asciirogue.creatures.Creature;
+import xyz.devosmium.rl.asciirogue.util.Line;
+import xyz.devosmium.rl.asciirogue.util.Point;
 
 public class CreatureAi {
 	protected Creature creature;

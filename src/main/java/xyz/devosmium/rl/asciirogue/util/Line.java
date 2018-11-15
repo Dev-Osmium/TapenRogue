@@ -1,4 +1,4 @@
-package xyz.devosmium.rl.AsciiRogue.util;
+package xyz.devosmium.rl.asciirogue.util;
 
 import java.util.ArrayList;
 import java.util.Iterator;

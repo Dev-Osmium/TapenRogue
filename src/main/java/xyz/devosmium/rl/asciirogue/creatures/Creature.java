@@ -1,10 +1,10 @@
-package xyz.devosmium.rl.AsciiRogue.creatures;
+package xyz.devosmium.rl.asciirogue.creatures;
 
-import xyz.devosmium.rl.AsciiRogue.Tile;
-import xyz.devosmium.rl.AsciiRogue.World;
-import xyz.devosmium.rl.AsciiRogue.creatures.ai.CreatureAi;
-import xyz.devosmium.rl.AsciiRogue.items.Item;
-import xyz.devosmium.rl.AsciiRogue.util.Inventory;
+import xyz.devosmium.rl.asciirogue.Tile;
+import xyz.devosmium.rl.asciirogue.World;
+import xyz.devosmium.rl.asciirogue.creatures.ai.CreatureAi;
+import xyz.devosmium.rl.asciirogue.items.Item;
+import xyz.devosmium.rl.asciirogue.util.Inventory;
 
 import java.awt.*;
 

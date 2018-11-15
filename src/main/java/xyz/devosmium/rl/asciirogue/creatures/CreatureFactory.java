@@ -1,12 +1,12 @@
-package xyz.devosmium.rl.AsciiRogue.creatures;
+package xyz.devosmium.rl.asciirogue.creatures;
 
 import java.util.List;
 
 import asciiPanel.AsciiPanel;
-import xyz.devosmium.rl.AsciiRogue.World;
-import xyz.devosmium.rl.AsciiRogue.creatures.ai.FungusAi;
-import xyz.devosmium.rl.AsciiRogue.creatures.ai.PlayerAi;
-import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
+import xyz.devosmium.rl.asciirogue.World;
+import xyz.devosmium.rl.asciirogue.creatures.ai.FungusAi;
+import xyz.devosmium.rl.asciirogue.creatures.ai.PlayerAi;
+import xyz.devosmium.rl.asciirogue.util.FieldOfView;
 
 public class CreatureFactory {
 	private World world;

@@ -1,6 +1,6 @@
-package xyz.devosmium.rl.AsciiRogue.util;
+package xyz.devosmium.rl.asciirogue.util;
 
-import xyz.devosmium.rl.AsciiRogue.items.Item;
+import xyz.devosmium.rl.asciirogue.items.Item;
 
 public class Inventory {
 

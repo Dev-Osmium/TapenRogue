@@ -1,7 +1,7 @@
-package xyz.devosmium.rl.AsciiRogue.util;
+package xyz.devosmium.rl.asciirogue.util;
 
-import xyz.devosmium.rl.AsciiRogue.Tile;
-import xyz.devosmium.rl.AsciiRogue.World;
+import xyz.devosmium.rl.asciirogue.Tile;
+import xyz.devosmium.rl.asciirogue.World;
 
 public class FieldOfView {
 

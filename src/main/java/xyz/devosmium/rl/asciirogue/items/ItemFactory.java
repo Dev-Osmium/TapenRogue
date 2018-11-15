@@ -1,7 +1,7 @@
-package xyz.devosmium.rl.AsciiRogue.items;
+package xyz.devosmium.rl.asciirogue.items;
 
 import asciiPanel.AsciiPanel;
-import xyz.devosmium.rl.AsciiRogue.World;
+import xyz.devosmium.rl.asciirogue.World;
 
 public class ItemFactory {
     private World world;

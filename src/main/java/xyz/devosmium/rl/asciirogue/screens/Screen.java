@@ -1,4 +1,4 @@
-package xyz.devosmium.rl.AsciiRogue.screens;
+package xyz.devosmium.rl.asciirogue.screens;
 
 import java.awt.event.KeyEvent;
 

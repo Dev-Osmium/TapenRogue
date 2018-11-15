@@ -1,6 +1,6 @@
-package xyz.devosmium.rl.AsciiRogue.creatures;
+package xyz.devosmium.rl.asciirogue.creatures;
 
-import xyz.devosmium.rl.AsciiRogue.creatures.ai.CreatureAi;
+import xyz.devosmium.rl.asciirogue.creatures.ai.CreatureAi;
 
 public class BatAi extends CreatureAi {
 

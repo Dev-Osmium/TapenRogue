@@ -1,23 +1,26 @@
-package xyz.devosmium.rl.AsciiRogue.screens;
+package xyz.devosmium.rl.asciirogue.screens;
 
 import java.awt.event.KeyEvent;
 
 import asciiPanel.AsciiPanel;
+import xyz.devosmium.rl.asciirogue.ApplicationMain;
 
-public class LoseScreen implements Screen {
+public class StartScreen implements Screen {
+
 	private AsciiPanel terminal;
-	
-	public LoseScreen(AsciiPanel terminal){
+	public StartScreen(AsciiPanel terminal) {
 		this.terminal = terminal;
 	}
 	@Override
 	public void displayOutput(AsciiPanel terminal) {
-		terminal.write("You lost.", 1, 1);
-		terminal.writeCenter("-- press [enter] to restart --", 22);
+		terminal.writeCenter("-- press [enter] to start --", 22);
 	}
 
 	@Override
 	public Screen respondToUserInput(KeyEvent key) {
+		if (key.getKeyCode() == KeyEvent.VK_ENTER) {
+			ApplicationMain.gameLoop().start();
+		}
 		return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen(terminal) : this;
 	}
 }

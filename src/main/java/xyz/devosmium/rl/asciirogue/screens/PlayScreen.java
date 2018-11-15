@@ -1,4 +1,4 @@
-package xyz.devosmium.rl.AsciiRogue.screens;
+package xyz.devosmium.rl.asciirogue.screens;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import asciiPanel.AsciiPanel;
-import xyz.devosmium.rl.AsciiRogue.World;
-import xyz.devosmium.rl.AsciiRogue.WorldBuilder;
-import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
-import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
-import xyz.devosmium.rl.AsciiRogue.items.ItemFactory;
-import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
+import xyz.devosmium.rl.asciirogue.World;
+import xyz.devosmium.rl.asciirogue.WorldBuilder;
+import xyz.devosmium.rl.asciirogue.creatures.Creature;
+import xyz.devosmium.rl.asciirogue.creatures.CreatureFactory;
+import xyz.devosmium.rl.asciirogue.items.ItemFactory;
+import xyz.devosmium.rl.asciirogue.util.FieldOfView;
 
 public class PlayScreen implements Screen, Runnable {
 	private World world;

@@ -1,10 +1,10 @@
-package xyz.devosmium.rl.AsciiRogue.creatures.ai;
+package xyz.devosmium.rl.asciirogue.creatures.ai;
 
 import java.util.List;
 
-import xyz.devosmium.rl.AsciiRogue.Tile;
-import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
-import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
+import xyz.devosmium.rl.asciirogue.Tile;
+import xyz.devosmium.rl.asciirogue.creatures.Creature;
+import xyz.devosmium.rl.asciirogue.util.FieldOfView;
 
 public class PlayerAi extends CreatureAi {
 

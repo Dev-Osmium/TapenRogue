@@ -1,4 +1,4 @@
-package xyz.devosmium.rl.AsciiRogue.items;
+package xyz.devosmium.rl.asciirogue.items;
 
 import java.awt.Color;
 

@@ -1,11 +1,11 @@
-package xyz.devosmium.rl.AsciiRogue;
+package xyz.devosmium.rl.asciirogue;
 
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import xyz.devosmium.rl.AsciiRogue.util.Point;
+import xyz.devosmium.rl.asciirogue.util.Point;
 
 public class WorldBuilder {
 	private int width;
