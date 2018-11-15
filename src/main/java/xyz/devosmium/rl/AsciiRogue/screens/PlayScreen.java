@@ -13,15 +13,17 @@ import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
 import xyz.devosmium.rl.AsciiRogue.items.ItemFactory;
 import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
 
-public class PlayScreen implements Screen {
+public class PlayScreen implements Screen, Runnable {
 	private World world;
 	private Creature player;
 	private int screenWidth;
 	private int screenHeight;
 	private List<String> messages;
 	private FieldOfView fov;
+	private AsciiPanel terminal;
 
-	public PlayScreen(){
+	public PlayScreen(AsciiPanel terminal){
+		this.terminal = terminal;
 		screenWidth = 80;
 		screenHeight = 23;
 		messages = new ArrayList<String>();
@@ -75,6 +77,15 @@ public class PlayScreen implements Screen {
 		String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
 		terminal.write(stats, 1, 23);
 	}
+	public void run() {
+		displayOutput(terminal);
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			System.out.println("Game Loop Interrupt caught");
+		}
+		
+	}
 
 	private void displayMessages(AsciiPanel terminal, List<String> messages) {
 		int top = screenHeight - messages.size();
@@ -103,8 +114,8 @@ public class PlayScreen implements Screen {
 	@Override
 	public Screen respondToUserInput(KeyEvent key) {
 		switch (key.getKeyCode()){
-			case KeyEvent.VK_ESCAPE: return new LoseScreen();
-			case KeyEvent.VK_ENTER: return new WinScreen();
+			//case KeyEvent.VK_ESCAPE: return new LoseScreen();
+			//case KeyEvent.VK_ENTER: return new WinScreen();
 			case KeyEvent.VK_LEFT:
 			case KeyEvent.VK_H: player.moveBy(-1, 0, 0); break;
 			case KeyEvent.VK_RIGHT:
@@ -128,7 +139,7 @@ public class PlayScreen implements Screen {
 		world.update();
 
 		if (player.hp() < 1)
-			return new LoseScreen();
+			return new LoseScreen(terminal);
 
 		return this;
 	}

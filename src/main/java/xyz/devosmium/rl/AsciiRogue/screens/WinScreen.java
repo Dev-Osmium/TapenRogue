@@ -1,3 +1,4 @@
+/*
 package xyz.devosmium.rl.AsciiRogue.screens;
 
 import java.awt.event.KeyEvent;
@@ -17,3 +18,4 @@ public class WinScreen implements Screen {
 		return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen() : this;
 	}
 }
+*/

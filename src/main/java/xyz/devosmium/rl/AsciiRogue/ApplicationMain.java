@@ -10,13 +10,18 @@ public class ApplicationMain extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 1060623638149583738L;
 	private AsciiPanel terminal;
 	private Screen screen;
+	private static Thread gameLoop;
+	public static Thread gameLoop() { return gameLoop; }
 	
 	public ApplicationMain(){
 		super();
 		terminal = new AsciiPanel();
+		this.gameLoop = new Thread(new PlayScreen(terminal));
+		
 		add(terminal);
 		pack();
-		screen = new StartScreen();
+		screen = new PlayScreen(terminal);
+		gameLoop.start();
 		addKeyListener(this);
 		repaint();
 	}
@@ -24,7 +29,6 @@ public class ApplicationMain extends JFrame implements KeyListener {
 	@Override
 	public void repaint(){
 		terminal.clear();
-		screen.displayOutput(terminal);
 		super.repaint();
 	}
 
