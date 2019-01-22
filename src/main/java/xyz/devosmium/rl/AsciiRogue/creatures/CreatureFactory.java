@@ -4,8 +4,7 @@ import java.util.List;
 
 import asciiPanel.AsciiPanel;
 import xyz.devosmium.rl.AsciiRogue.World;
-import xyz.devosmium.rl.AsciiRogue.creatures.ai.FungusAi;
-import xyz.devosmium.rl.AsciiRogue.creatures.ai.PlayerAi;
+import xyz.devosmium.rl.AsciiRogue.creatures.ai.*;
 import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
 
 public class CreatureFactory {
