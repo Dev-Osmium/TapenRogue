@@ -10,6 +10,7 @@ public class ApplicationMain extends JFrame implements KeyListener {
 	
 	private AsciiPanel terminal;
 	private Screen screen;
+	public static ApplicationMain mApp;
 	
 	public ApplicationMain(){
 		super();
@@ -19,6 +20,7 @@ public class ApplicationMain extends JFrame implements KeyListener {
 		screen = new PlayScreen();
 		addKeyListener(this);
 		repaint();
+		
 	}
 	
 	@Override
@@ -45,5 +47,6 @@ public class ApplicationMain extends JFrame implements KeyListener {
 		ApplicationMain app = new ApplicationMain();
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		app.setVisible(true);
+		mApp = app;
 	}
 }

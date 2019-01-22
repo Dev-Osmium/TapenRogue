@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import asciiPanel.AsciiPanel;
+import xyz.devosmium.rl.AsciiRogue.ApplicationMain;
 import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.WorldBuilder;
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
@@ -29,6 +30,10 @@ public class PlayScreen implements Screen {
 
 		CreatureFactory creatureFactory = new CreatureFactory(world);
 		createCreatures(creatureFactory);
+
+		Thread gameLoop = new Thread(new GameLoop(), "Game Loop");
+		gameLoop.start();
+
 	}
 
 	private void createCreatures(CreatureFactory creatureFactory){
@@ -114,12 +119,20 @@ public class PlayScreen implements Screen {
 			case '>': player.moveBy( 0, 0, 1); break;
 		}
 
-		world.update();
 
 		if (player.hp() < 1)
 			return new LoseScreen();
 
 		return this;
+	}
+
+	private class GameLoop implements Runnable {
+		public void run() {
+			while (true) {
+				world.update();
+				ApplicationMain.mApp.repaint();
+			}
+		}
 	}
 
 }
