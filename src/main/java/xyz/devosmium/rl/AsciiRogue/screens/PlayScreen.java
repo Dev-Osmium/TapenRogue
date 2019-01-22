@@ -36,6 +36,7 @@ public class PlayScreen implements Screen {
 
 	}
 
+
 	private void createCreatures(CreatureFactory creatureFactory){
 		player = creatureFactory.newPlayer(messages, fov);
 
@@ -129,8 +130,17 @@ public class PlayScreen implements Screen {
 	private class GameLoop implements Runnable {
 		public void run() {
 			while (true) {
+				try {
 				world.update();
 				ApplicationMain.mApp.repaint();
+				try {
+					Thread.sleep(400);
+				} catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			} catch (Exception e) {
+				// Do nothing
+			}
 			}
 		}
 	}
