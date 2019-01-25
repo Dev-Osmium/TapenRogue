@@ -99,7 +99,7 @@ public class PlayScreen implements Screen {
 	@Override
 	public Screen respondToUserInput(KeyEvent key) {
 		switch (key.getKeyCode()){
-			case KeyEvent.VK_ESCAPE: return new LoseScreen();
+			case KeyEvent.VK_ESCAPE: System.exit(0);
 			case KeyEvent.VK_ENTER: return new WinScreen();
 			case KeyEvent.VK_LEFT:
 			case KeyEvent.VK_H: player.moveBy(-1, 0, 0); break;
