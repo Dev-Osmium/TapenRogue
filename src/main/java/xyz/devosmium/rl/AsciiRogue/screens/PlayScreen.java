@@ -47,6 +47,13 @@ public class PlayScreen implements Screen {
 			for (int i = 0; i < 20; i++){
 				creatureFactory.newBat(z);
 			}
+			for (int i = 0; i < 25; i++) {
+				if (z>=world.depth()/2) {
+					creatureFactory.newZombie(z);
+				} else {
+					// Do nothing
+				}
+			}
 		}
 	}
 
