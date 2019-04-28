@@ -3,6 +3,7 @@ package xyz.devosmium.rl.AsciiRogue.creatures;
 import xyz.devosmium.rl.AsciiRogue.Tile;
 import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.creatures.ai.CreatureAi;
+import xyz.devosmium.rl.AsciiRogue.items.Item;
 
 import java.awt.*;
 
@@ -97,6 +98,7 @@ public class Creature {
 
 		if (hp < 1) {
 			doAction("die");
+			leaveCorpse();
 			world.remove(this);
 		}
 	}
@@ -161,5 +163,10 @@ public class Creature {
 
 	public Creature creature(int wx, int wy, int wz) {
 		return world.creature(wx, wy, wz);
+	}
+	public void leaveCorpse() {
+		Item corpse = new Item('%', color, "corpse of " + name);
+		corpse.modFoodValue(maxHp * 3);
+		world.addAtEmptySpace(corpse, x, y, z);
 	}
 }

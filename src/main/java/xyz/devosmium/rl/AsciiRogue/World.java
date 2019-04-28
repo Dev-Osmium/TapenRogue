@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
+import xyz.devosmium.rl.AsciiRogue.util.Point;
 
 public class World {
 	private Tile[][][] tiles;
@@ -84,4 +85,36 @@ public class World {
 	public void remove(Creature other) {
 		creatures.remove(other);
 	}
+
+
+	public void addAtEmptySpace(Item item, int x, int y, int z){
+		if (item == null)
+			return;
+		
+		List<Point> points = new ArrayList<Point>();
+		List<Point> checked = new ArrayList<Point>();
+		
+		points.add(new Point(x, y, z));
+		
+		while (!points.isEmpty()){
+			Point p = points.remove(0);
+			checked.add(p);
+			
+			if (!tile(p.x, p.y, p.z).isGround())
+				continue;
+			 
+			if (items[p.x][p.y][p.z] == null){
+				items[p.x][p.y][p.z] = item;
+				Creature c = this.creature(p.x, p.y, p.z);
+				if (c != null)
+					c.notify("A %s lands between your feet.", item.name());
+				return;
+			} else {
+				List<Point> neighbors = p.neighbors8();
+				neighbors.removeAll(checked);
+				points.addAll(neighbors);
+			}
+		}
+	}
+	
 }
