@@ -6,9 +6,12 @@ import java.util.List;
 
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.util.Point;
+import xyz.devosmium.rl.AsciiRogue.items.Item;
 
 public class World {
 	private Tile[][][] tiles;
+
+	private Item[][][] items;
 	
 	private int width;
 	public int width() { return width; }
@@ -27,6 +30,7 @@ public class World {
 		this.height = tiles[0].length;
 		this.depth = tiles[0][0].length;
 		this.creatures = new ArrayList<Creature>();
+		this.items = new Item[width][height][depth];
 	}
 
 	public Creature creature(int x, int y, int z){
@@ -35,6 +39,10 @@ public class World {
 				return c;
 		}
 		return null;
+	}
+
+	public Item item(int x, int y, int z) {
+		return items[x][y][z];
 	}
 	
 	public Tile tile(int x, int y, int z){
@@ -46,12 +54,24 @@ public class World {
 
 	public char glyph(int x, int y, int z){
 		Creature creature = creature(x, y, z);
-		return creature != null ? creature.glyph() : tile(x, y, z).glyph();
+		if (creature != null)
+			return creature.glyph();
+		
+		if (item(x,y,z) != null)
+			return item(x,y,z).glyph();
+		
+		return tile(x, y, z).glyph();
 	}
 
 	public Color color(int x, int y, int z){
 		Creature creature = creature(x, y, z);
-		return creature != null ? creature.color() : tile(x, y, z).color();
+		if (creature != null)
+			return creature.color();
+		
+		if (item(x,y,z) != null)
+			return item(x,y,z).color();
+		
+		return tile(x, y, z).color();
 	}
 
 	public void dig(int x, int y, int z) {
@@ -73,6 +93,17 @@ public class World {
 		creature.y = y;
 		creature.z = z;
 		creatures.add(creature);
+	}
+
+	public void addAtEmptyLocation(Item item, int z){
+		int x,y;
+
+		do {
+			x = (int) (Math.random() * width);
+			y = (int) (Math.random() * height);
+		} while (!tile(x,y,depth).isGround() || item(x,y,depth) != null);
+
+		items[x][y][depth] = item;
 	}
 	
 	public void update(){
