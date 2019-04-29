@@ -98,12 +98,16 @@ public class World {
 	public void addAtEmptyLocation(Item item, int z){
 		int x,y;
 
-		do {
-			x = (int) (Math.random() * width);
-			y = (int) (Math.random() * height);
-		} while (!tile(x,y,depth).isGround() || item(x,y,depth) != null);
+		for (int checkY = 0; checkY < height; checkY++) {
+			for (int checkX = 0; checkX < width; checkX++) {
+				System.out.println("Checking " + checkX + ", " + checkY);
+				if (tile(checkX, checkY, depth).isGround() || item(checkX,checkY,depth) == null)  {
+					System.out.println("Adding item " + item.name());
+					items[checkX][checkY][depth] = item;
+				}
+			}
+		}
 
-		items[x][y][depth] = item;
 	}
 	
 	public void update(){
@@ -146,6 +150,10 @@ public class World {
 				points.addAll(neighbors);
 			}
 		}
+	}
+
+	public void remove(int x, int y, int z) {
+		items[x][y][z] = null;
 	}
 	
 }

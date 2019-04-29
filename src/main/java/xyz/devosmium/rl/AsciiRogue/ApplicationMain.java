@@ -14,12 +14,19 @@ public class ApplicationMain extends JFrame implements KeyListener {
 	
 	public ApplicationMain(){
 		super();
+		System.out.println("INFO: Calling Main Constructor");
+		System.out.println("Creating terminal");
 		terminal = new AsciiPanel();
 		add(terminal);
+		System.out.println("Adding terminal...");
 		pack();
+		System.out.println("Packed windows");
 		screen = new PlayScreen();
+		System.out.println("Created playscreen");
 		addKeyListener(this);
+		System.out.println("Added keylistener");
 		repaint();
+		System.out.println("Repainting...");
 		
 	}
 	

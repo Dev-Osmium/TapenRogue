@@ -26,16 +26,19 @@ public class PlayScreen implements Screen {
 		screenWidth = 80;
 		screenHeight = 23;
 		messages = new ArrayList<String>();
+		System.out.println("Creating world...");
 		createWorld();
+		System.out.println("World created");
 		fov = new FieldOfView(world);
 
 		CreatureFactory creatureFactory = new CreatureFactory(world);
 		ItemFactory itemFactory = new ItemFactory(world);
+		System.out.println("Creating creatures...");
 		createCreatures(creatureFactory);
+		System.out.println("Created creatures");
+		System.out.println("Creating items...");
 		createItems(itemFactory);
-
-		Thread gameLoop = new Thread(new GameLoop(), "Game Loop");
-		gameLoop.start();
+		System.out.println("Created items");
 
 	}
 
@@ -50,19 +53,14 @@ public class PlayScreen implements Screen {
 			for (int i = 0; i < 20; i++){
 				creatureFactory.newBat(z);
 			}
-			for (int i = 0; i < 25; i++) {
-				if (z>=world.depth()/2) {
-					creatureFactory.newZombie(z);
-				} else {
-					// Do nothing
-				}
-			}
+		
 		}
 	}
 
 	private void createItems(ItemFactory itemFactory) {
 		for (int z = 0; z<world.depth(); z++) {
 			for (int i = 0; i < world.width() * world.height() / 20; i++){
+				System.out.println("Creating rocks...");
 				itemFactory.newRock(z);
 			}
 		}
@@ -134,10 +132,12 @@ public class PlayScreen implements Screen {
 		}
 
 		switch (key.getKeyChar()){
+			case ',': player.pickup(); break;
 			case '<': player.moveBy( 0, 0, -1); break;
 			case '>': player.moveBy( 0, 0, 1); break;
 		}
 
+		world.update();
 
 		if (player.hp() < 1)
 			return new LoseScreen();
