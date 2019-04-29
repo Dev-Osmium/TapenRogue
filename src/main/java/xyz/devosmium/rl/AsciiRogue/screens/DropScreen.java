@@ -1,4 +1,4 @@
-package xyz.devosmium.rl.AsciiRogue.screens.inventory;
+package xyz.devosmium.rl.AsciiRogue.screens;
 
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.items.Item;

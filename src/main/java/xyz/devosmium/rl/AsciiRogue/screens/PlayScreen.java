@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import asciiPanel.AsciiPanel;
-import xyz.devosmium.rl.AsciiRogue.ApplicationMain;
 import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.WorldBuilder;
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
@@ -122,7 +121,7 @@ public class PlayScreen implements Screen {
 	@Override
 	public Screen respondToUserInput(KeyEvent key) {
 		if (subscreen != null) {
-			subscreen.respondToUserInput(key);
+			subscreen = subscreen.respondToUserInput(key);
 		} else {
 			switch (key.getKeyCode()) {
 			case KeyEvent.VK_ESCAPE:
@@ -157,6 +156,9 @@ public class PlayScreen implements Screen {
 			case KeyEvent.VK_N:
 				player.moveBy(1, 1, 0);
 				break;
+			case KeyEvent.VK_D:
+				subscreen = new DropScreen(player);
+				break;
 			}
 		}
 
@@ -181,7 +183,5 @@ public class PlayScreen implements Screen {
 
 		return this;
 	}
-
-	
 
 }

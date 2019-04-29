@@ -1,4 +1,4 @@
-package xyz.devosmium.rl.AsciiRogue.screens.inventory;
+package xyz.devosmium.rl.AsciiRogue.screens;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -14,7 +14,9 @@ public abstract class InventoryBaseScreen implements Screen {
     private String letters;
 
     protected abstract String getVerb();
+
     protected abstract boolean isAcceptable(Item item);
+
     protected abstract Screen use(Item item);
 
     public InventoryBaseScreen(Creature player) {
@@ -25,14 +27,14 @@ public abstract class InventoryBaseScreen implements Screen {
     public void displayOutput(AsciiPanel terminal) {
         ArrayList<String> lines = getList();
 
-        int y = 23-lines.size();
+        int y = 23 - lines.size();
         int x = 4;
 
         if (lines.size() > 0) {
             terminal.clear(' ', x, y, 20, lines.size());
         }
 
-        for (String line: lines) {
+        for (String line : lines) {
             terminal.write(line, x, y++);
         }
 
@@ -62,9 +64,11 @@ public abstract class InventoryBaseScreen implements Screen {
 
     public Screen respondToUserInput(KeyEvent key) {
         char c = key.getKeyChar();
+
         Item[] items = player.getInventory().getItems();
 
-        if (letters.indexOf(c) > 1 && items.length > letters.indexOf(c) && items[letters.indexOf(c)] != null && isAcceptable(items[letters.indexOf(c)])) {
+        if (letters.indexOf(c) > -1 && items.length > letters.indexOf(c) && items[letters.indexOf(c)] != null
+                && isAcceptable(items[letters.indexOf(c)])) {
             return use(items[letters.indexOf(c)]);
         } else if (key.getKeyCode() == KeyEvent.VK_ESCAPE) {
             return null;
