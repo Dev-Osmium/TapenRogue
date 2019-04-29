@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.devosmium.rl</groupId>
   <artifactId>AsciiRogue</artifactId>
-  <version>0.5-SNAPSHOT</version>
+  <version>0.7.1-SNAPSHOT</version>
   <build>
     <plugins>
       <plugin>
@@ -61,10 +61,10 @@
     </repository>
   </repositories>
   <properties>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <main>xyz.devosmium.rl.AsciiRogue.ApplicationMain</main>
     <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <main>xyz.devosmium.rl.AsciiRogue.ApplicationMain</main>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 </project>
 
