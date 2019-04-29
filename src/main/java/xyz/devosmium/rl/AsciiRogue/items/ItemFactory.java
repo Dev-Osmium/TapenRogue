@@ -15,6 +15,7 @@ public class ItemFactory {
         System.out.println("Creating rock");
         Item rock = new Item(',', AsciiPanel.yellow, "rock");
         System.out.println("Created rock");
+        System.out.println("Depth = " + depth);
         world.addAtEmptyLocation(rock, depth);
         System.out.println("Added rock to world");
         return rock;

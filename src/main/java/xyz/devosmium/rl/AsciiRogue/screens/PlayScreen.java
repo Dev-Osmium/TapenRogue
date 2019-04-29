@@ -61,6 +61,7 @@ public class PlayScreen implements Screen {
 		for (int z = 0; z<world.depth(); z++) {
 			for (int i = 0; i < world.width() * world.height() / 20; i++){
 				System.out.println("Creating rocks...");
+				System.out.println("Depth = " + z);
 				itemFactory.newRock(z);
 			}
 		}

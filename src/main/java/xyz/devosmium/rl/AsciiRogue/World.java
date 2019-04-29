@@ -98,15 +98,14 @@ public class World {
 	public void addAtEmptyLocation(Item item, int z){
 		int x,y;
 
-		for (int checkY = 0; checkY < height; checkY++) {
-			for (int checkX = 0; checkX < width; checkX++) {
-				System.out.println("Checking " + checkX + ", " + checkY);
-				if (tile(checkX, checkY, depth).isGround() || item(checkX,checkY,depth) == null)  {
-					System.out.println("Adding item " + item.name());
-					items[checkX][checkY][depth] = item;
-				}
-			}
-		}
+		System.out.println("Depth = " + z);
+		do {
+			x = (int)(Math.random() * width);
+			y = (int)(Math.random() * height);
+		} 
+		while (!tile(x,y,z).isGround() || item(x,y,z) != null);
+
+		items[x][y][z] = item;
 
 	}
 	
