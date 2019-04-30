@@ -30,6 +30,12 @@ public class Creature {
 	private int hp;
 	public int hp() { return hp; }
 
+	private int maxFood;
+	public int maxFood() { return maxFood; }
+
+	private int food;
+	public int food() { return food; }
+
 	private int attackValue;
 	public int attackValue() { return attackValue; }
 
@@ -56,6 +62,8 @@ public class Creature {
 		this.visionRadius = 9;
 		this.name = name;
 		this.inventory = new Inventory(20);
+		this.maxFood = 2000;
+		this.food = maxFood / 3 *2;
 	}
 
 	public void moveBy(int mx, int my, int mz){
@@ -108,12 +116,24 @@ public class Creature {
 		}
 	}
 
+	public void modifyFood(int mod) {
+		food += mod;
+
+		if (food > maxFood) {
+			food = maxFood;
+		} else if (food <=0 && isPlayer()) {
+			modifyHp(-1000);
+		}
+	}
+
 	public void dig(int wx, int wy, int wz) {
 		world.dig(wx, wy, wz);
+		modifyFood(-10);
 		doAction("dig");
 	}
 
 	public void update(){
+		modifyFood(-1);
 		ai.onUpdate();
 	}
 
@@ -191,5 +211,14 @@ public class Creature {
 		doAction("drop a %s", item.name());
 		inventory.remove(item);
 		world.addAtEmptySpace(item, x, y, z);
+	}
+
+	public void eat(Item item) {
+		modifyFood(item.getFoodValue());
+		inventory.remove(item);
+	}
+
+	public boolean isPlayer() {
+		return glyph == '@';
 	}
 }
