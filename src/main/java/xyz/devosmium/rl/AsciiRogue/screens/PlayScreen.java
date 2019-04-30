@@ -10,6 +10,7 @@ import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.WorldBuilder;
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
+import xyz.devosmium.rl.AsciiRogue.items.FoodFactory;
 import xyz.devosmium.rl.AsciiRogue.items.ItemFactory;
 import xyz.devosmium.rl.AsciiRogue.items.Weapon;
 import xyz.devosmium.rl.AsciiRogue.items.WeaponFactory;
@@ -37,10 +38,12 @@ public class PlayScreen implements Screen {
 		CreatureFactory creatureFactory = new CreatureFactory(world);
 		ItemFactory itemFactory = new ItemFactory(world);
 		WeaponFactory weaponFactory = new WeaponFactory(world);
+		FoodFactory foodFactory = new FoodFactory(world);
 		System.out.println("Filling World...");
 		createCreatures(creatureFactory);
 		createItems(itemFactory);
 		createWeapons(weaponFactory);
+		createFood(foodFactory);
 		System.out.println("World filled, entering...");
 
 	}
@@ -66,9 +69,6 @@ public class PlayScreen implements Screen {
 				System.out.println("Depth = " + z);
 				itemFactory.newRock(z);
 			}
-			for (int i = 0; i < 10; i++) {
-				itemFactory.newBread(z);
-			}
 		}
 	}
 
@@ -76,6 +76,14 @@ public class PlayScreen implements Screen {
 		for (int z = 0; z < world.depth(); z++) {
 			for (int i = 0; i < 2; i++) {
 				factory.newDagger(z);
+			}
+		}
+	}
+
+	private void createFood(FoodFactory factory) {
+		for (int z = 0; z < world.depth(); z++) {
+			for (int i = 0; i < 10; i++) {
+				factory.newBread(z);
 			}
 		}
 	}

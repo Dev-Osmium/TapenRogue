@@ -1,6 +1,7 @@
 package xyz.devosmium.rl.AsciiRogue.screens;
 
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
+import xyz.devosmium.rl.AsciiRogue.items.Food;
 import xyz.devosmium.rl.AsciiRogue.items.Item;
 
 public class EatScreen extends InventoryBaseScreen {
@@ -16,7 +17,11 @@ public class EatScreen extends InventoryBaseScreen {
 
     @Override
     protected boolean isAcceptable(Item item) {
-        return item.getFoodValue() != 0;
+        if (item instanceof Food) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

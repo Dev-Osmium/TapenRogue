@@ -32,12 +32,6 @@ public class ItemFactory {
         return item;
     }
 
-    // Food
-    public Item newBread(int depth) {
-        Item bread = new Item('b', AsciiPanel.brightGreen, "bread");
-        bread.modFoodValue(100);
-        world.addAtEmptyLocation(bread, depth);
-        return bread;
-    }
+
 
 }

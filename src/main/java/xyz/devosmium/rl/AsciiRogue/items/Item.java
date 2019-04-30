@@ -4,19 +4,16 @@ import java.awt.Color;
 
 public class Item {
     
-    private char glyph;
+    protected char glyph;
     public char glyph() {return glyph;}
 
-    private Color color;
+    protected Color color;
     public Color color() {return color;}
 
-    private String name;
+    protected String name;
     public String name() {return name;}
 
-    // Values of Food
-    private int foodValue;
-    public int getFoodValue() { return foodValue; }
-    public void modFoodValue(int mod) { foodValue += mod; }
+
 
     
 
