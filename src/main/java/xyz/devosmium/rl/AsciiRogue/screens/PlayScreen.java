@@ -11,6 +11,8 @@ import xyz.devosmium.rl.AsciiRogue.WorldBuilder;
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
 import xyz.devosmium.rl.AsciiRogue.items.ItemFactory;
+import xyz.devosmium.rl.AsciiRogue.items.Weapon;
+import xyz.devosmium.rl.AsciiRogue.items.WeaponFactory;
 import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
 
 public class PlayScreen implements Screen {
@@ -34,12 +36,12 @@ public class PlayScreen implements Screen {
 
 		CreatureFactory creatureFactory = new CreatureFactory(world);
 		ItemFactory itemFactory = new ItemFactory(world);
-		System.out.println("Creating creatures...");
+		WeaponFactory weaponFactory = new WeaponFactory(world);
+		System.out.println("Filling World...");
 		createCreatures(creatureFactory);
-		System.out.println("Created creatures");
-		System.out.println("Creating items...");
 		createItems(itemFactory);
-		System.out.println("Created items");
+		createWeapons(weaponFactory);
+		System.out.println("World filled, entering...");
 
 	}
 
@@ -64,6 +66,17 @@ public class PlayScreen implements Screen {
 				System.out.println("Depth = " + z);
 				itemFactory.newRock(z);
 			}
+			for (int i = 0; i < 10; i++) {
+				itemFactory.newBread(z);
+			}
+		}
+	}
+
+	private void createWeapons(WeaponFactory factory) {
+		for (int z = 0; z < world.depth(); z++) {
+			for (int i = 0; i < 2; i++) {
+				factory.newDagger(z);
+			}
 		}
 	}
 
@@ -87,7 +100,7 @@ public class PlayScreen implements Screen {
 		displayTiles(terminal, left, top);
 		displayMessages(terminal, messages);
 
-		String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
+		String stats = String.format(" %3d/%3d hp, %8s", player.hp(), player.maxHp(), hunger());
 		terminal.write(stats, 1, 23);
 		if (subscreen != null) {
 			subscreen.displayOutput(terminal);
@@ -159,6 +172,9 @@ public class PlayScreen implements Screen {
 			case KeyEvent.VK_D:
 				subscreen = new DropScreen(player);
 				break;
+			case KeyEvent.VK_E:
+				subscreen = new EatScreen(player);
+				break;
 			}
 		}
 
@@ -182,6 +198,20 @@ public class PlayScreen implements Screen {
 			return new LoseScreen();
 
 		return this;
+	}
+
+	private String hunger() {
+		if (player.food() < player.maxFood() * 0.1) {
+			return "Starving";
+		} else if (player.food() < player.maxFood() * 0.2) {
+			return "Hungry";
+		} else if (player.food() > player.maxFood() * 0.9) {
+			return "Stuffed";
+		} else if (player.food() > player.maxFood() * 0.8) {
+			return "Full";
+		} else {
+			return "";
+		}
 	}
 
 }

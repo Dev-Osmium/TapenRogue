@@ -18,6 +18,12 @@ public class Item {
     public int getFoodValue() { return foodValue; }
     public void modFoodValue(int mod) { foodValue += mod; }
 
+    
+
+    private int defenseValue;
+    public int getDefenseValue() { return defenseValue; }
+    public void modDefenseValue(int mod) { defenseValue += mod; }
+
     public Item(char glyph, Color color, String name) {
         this.glyph = glyph;
         this.color = color;
