@@ -12,7 +12,6 @@ import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
 import xyz.devosmium.rl.AsciiRogue.items.FoodFactory;
 import xyz.devosmium.rl.AsciiRogue.items.ItemFactory;
-import xyz.devosmium.rl.AsciiRogue.items.Weapon;
 import xyz.devosmium.rl.AsciiRogue.items.WeaponFactory;
 import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
 
