@@ -3,6 +3,7 @@ package xyz.devosmium.rl.AsciiRogue.creatures;
 import xyz.devosmium.rl.AsciiRogue.Tile;
 import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.creatures.ai.CreatureAi;
+import xyz.devosmium.rl.AsciiRogue.items.Food;
 import xyz.devosmium.rl.AsciiRogue.items.Item;
 import xyz.devosmium.rl.AsciiRogue.util.Inventory;
 
@@ -190,7 +191,7 @@ public class Creature {
 		return world.creature(wx, wy, wz);
 	}
 	public void leaveCorpse() {
-		Item corpse = new Item('%', color, "corpse of " + name);
+		Food corpse = new Food('%', color, "corpse of " + name);
 		corpse.modFoodValue(maxHp * 3);
 		world.addAtEmptySpace(corpse, x, y, z);
 	}
@@ -213,7 +214,7 @@ public class Creature {
 		world.addAtEmptySpace(item, x, y, z);
 	}
 
-	public void eat(Item item) {
+	public void eat(Food item) {
 		modifyFood(item.getFoodValue());
 		inventory.remove(item);
 	}
