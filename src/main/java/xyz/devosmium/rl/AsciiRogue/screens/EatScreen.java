@@ -26,7 +26,11 @@ public class EatScreen extends InventoryBaseScreen {
 
     @Override
     protected Screen use(Item item) {
-        player.eat(item);
+        if (item instanceof Food) {
+            player.eat((Food)item);
+        } else {
+            throw new IllegalArgumentException("Tried to eat a non-food item.");
+        }
         return null;
     }
 
