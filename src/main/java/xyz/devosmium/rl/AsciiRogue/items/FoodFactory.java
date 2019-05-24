@@ -16,4 +16,11 @@ public class FoodFactory extends ItemFactory {
             world.addAtEmptyLocation(bread, depth);
             return bread;
         }
+
+        public Item newRation(int depth) {
+            Food ration = new Food('r', AsciiPanel.brightGreen, "ration");
+            ration.modFoodValue(125);
+            world.addAtEmptyLocation(ration, depth);
+            return ration;
+        }
 }

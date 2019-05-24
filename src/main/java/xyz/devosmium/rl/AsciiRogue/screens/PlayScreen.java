@@ -83,6 +83,7 @@ public class PlayScreen implements Screen {
 		for (int z = 0; z < world.depth(); z++) {
 			for (int i = 0; i < 10; i++) {
 				factory.newBread(z);
+				factory.newRation(z);
 			}
 		}
 	}
