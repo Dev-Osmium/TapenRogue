@@ -35,5 +35,12 @@ public class CreatureFactory {
 		return bat;
 	}
 
+	public Creature newZombie(int depth) {
+		Creature zombie = new Creature(world, 'z', AsciiPanel.red, "zombie", 15,5,0);
+		world.addAtEmptyLocation(zombie, depth);
+		new ZombAi(zombie);
+		return zombie;
+	}
+
 
 }
