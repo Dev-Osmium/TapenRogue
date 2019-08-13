@@ -6,9 +6,6 @@ import xyz.devosmium.rl.AsciiRogue.Tile;
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.util.FieldOfView;
 
-
-import java.util.List;
-
 public class PlayerAi extends CreatureAi {
 
     private List<String> messages;
