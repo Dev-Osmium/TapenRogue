@@ -56,11 +56,7 @@ public class Creature {
 	private int food;
 	public int food() { return food; }
 
-	private int attackValue;
-	public int attackValue() { return attackValue; }
 
-	private int defenseValue;
-	public int defenseValue() { return defenseValue; }
 
 	private int visionRadius;
 	public int visionRadius() { return visionRadius; }
@@ -76,6 +72,18 @@ public class Creature {
 
 	private Armor armor;
 	public Armor armor() { return armor; }
+
+	private int attackValue;
+	public int attackValue() {
+		return attackValue
+		+ (weapon == null ? 0 : weapon.getAttackValue());
+	}
+
+	private int defenseValue;
+	public int defenseValue() { 
+		return defenseValue
+		+ (armor == null ? 0 : armor.getDefValue());
+	 }
 
 	public Creature(World world, char glyph, Color color, String name, int maxHp, int attack, int defense){
 		this.world = world;
