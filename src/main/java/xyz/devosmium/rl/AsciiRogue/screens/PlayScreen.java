@@ -217,6 +217,9 @@ public class PlayScreen implements Screen {
 			case KeyEvent.VK_E:
 				subscreen = new EatScreen(player);
 				break;
+			case KeyEvent.VK_W:
+				subscreen = new EquipScreen(player);
+				break;
 			}
 		}
 
