@@ -8,6 +8,7 @@ import xyz.devosmium.rl.AsciiRogue.screens.*;
 
 public class ApplicationMain extends JFrame implements KeyListener {
 	
+	private static final long serialVersionUID = 8841027275550835912L;
 	private AsciiPanel terminal;
 	private Screen screen;
 	public static ApplicationMain mApp;
