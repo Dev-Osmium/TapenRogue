@@ -5,6 +5,6 @@ bin
 .idea
 target/
 bin/
-AsciiRogue.tar
-AsciiRogue.zip
+tapenrogue.tar
+tapenrogue.zip
 dependency-reduced-pom.xml
