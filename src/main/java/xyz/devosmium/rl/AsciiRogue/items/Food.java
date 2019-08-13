@@ -8,6 +8,10 @@ public class Food extends Item {
     public int getFoodValue() { return foodValue; }
     public void modFoodValue(int mod) { foodValue += mod; }
 
+    private int healthValue;
+    public int getHealthValue() { return healthValue; }
+    public void modHealthValue(int mod) { foodValue += mod; }
+
     public Food(char glyph, Color color, String name) {
         super(glyph, color, name);
     }

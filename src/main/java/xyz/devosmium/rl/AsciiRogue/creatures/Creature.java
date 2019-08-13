@@ -215,6 +215,7 @@ public class Creature {
 	}
 
 	public void eat(Food item) {
+		modifyHp(item.getHealthValue());
 		modifyFood(item.getFoodValue());
 		inventory.remove(item);
 	}
