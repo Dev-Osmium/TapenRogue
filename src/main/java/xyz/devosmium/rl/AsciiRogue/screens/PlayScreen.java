@@ -27,6 +27,7 @@ import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.WorldBuilder;
 import xyz.devosmium.rl.AsciiRogue.creatures.Creature;
 import xyz.devosmium.rl.AsciiRogue.creatures.CreatureFactory;
+import xyz.devosmium.rl.AsciiRogue.items.ArmorFactory;
 import xyz.devosmium.rl.AsciiRogue.items.FoodFactory;
 import xyz.devosmium.rl.AsciiRogue.items.ItemFactory;
 import xyz.devosmium.rl.AsciiRogue.items.WeaponFactory;
@@ -55,14 +56,18 @@ public class PlayScreen implements Screen {
 		ItemFactory itemFactory = new ItemFactory(world);
 		WeaponFactory weaponFactory = new WeaponFactory(world);
 		FoodFactory foodFactory = new FoodFactory(world);
+		ArmorFactory armorFactory = new ArmorFactory(world);
 		System.out.println("Filling World...");
 		createCreatures(creatureFactory);
 		createItems(itemFactory);
 		createWeapons(weaponFactory);
 		createFood(foodFactory);
+		createArmor(armorFactory);
 		System.out.println("World filled, entering...");
 
 	}
+
+
 
 	private void createCreatures(CreatureFactory creatureFactory) {
 		player = creatureFactory.newPlayer(messages, fov);
@@ -106,6 +111,14 @@ public class PlayScreen implements Screen {
 			}
 			
 			factory.newRation(z);
+		}
+	}
+
+	private void createArmor(ArmorFactory armorFactory) {
+		for (int z = 0; z < world.depth(); z++) {
+			for (int i = 0; i < 2; i++) {
+				armorFactory.newLightArmor(z);
+			}
 		}
 	}
 
