@@ -38,6 +38,10 @@ public class Item {
     public int getDefenseValue() { return defenseValue; }
     public void modDefenseValue(int mod) { defenseValue += mod; }
 
+    private int attackValue;
+    public int getAttackValue() { return attackValue; }
+    public void modAttackValue(int mod) { attackValue += mod; }
+
     public Item(char glyph, Color color, String name) {
         this.glyph = glyph;
         this.color = color;

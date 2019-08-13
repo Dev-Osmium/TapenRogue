@@ -67,11 +67,11 @@ public class Creature {
 	private Inventory inventory;
 	public Inventory getInventory() {return inventory;}
 
-	private Weapon weapon;
-	public Weapon weapon() { return weapon; }
+	private Item weapon;
+	public Item weapon() { return weapon; }
 
-	private Armor armor;
-	public Armor armor() { return armor; }
+	private Item armor;
+	public Item armor() { return armor; }
 
 	private int attackValue;
 	public int attackValue() {
@@ -82,7 +82,7 @@ public class Creature {
 	private int defenseValue;
 	public int defenseValue() { 
 		return defenseValue
-		+ (armor == null ? 0 : armor.getDefValue());
+		+ (armor == null ? 0 : armor.getDefenseValue());
 	 }
 
 	public Creature(World world, char glyph, Color color, String name, int maxHp, int attack, int defense){
@@ -271,15 +271,18 @@ public class Creature {
 		}
 	}
 
-	public void equip(Weapon weap) {
-		unequip(weapon);
-		doAction("wield a " + weap.name());
-		weapon = weap;
-	}
-
-	public void equip(Armor armor) {
-		unequip(armor);
-		doAction("put on a " + armor.name());
-		this.armor = armor;
+	public void equip(Item item) {
+		if (item.getAttackValue() == 0 && item.getDefenseValue() == 0)
+          return;
+  
+      if (item.getAttackValue() >= item.getDefenseValue()){
+          unequip(weapon);
+          doAction("wield a " + item.name());
+          weapon = item;
+      } else {
+          unequip(armor);
+          doAction("put on a " + item.name());
+          armor = item;
+      }
 	}
 }
