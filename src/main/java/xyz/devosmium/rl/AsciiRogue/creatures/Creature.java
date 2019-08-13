@@ -20,8 +20,10 @@ package xyz.devosmium.rl.AsciiRogue.creatures;
 import xyz.devosmium.rl.AsciiRogue.Tile;
 import xyz.devosmium.rl.AsciiRogue.World;
 import xyz.devosmium.rl.AsciiRogue.creatures.ai.CreatureAi;
+import xyz.devosmium.rl.AsciiRogue.items.Armor;
 import xyz.devosmium.rl.AsciiRogue.items.Food;
 import xyz.devosmium.rl.AsciiRogue.items.Item;
+import xyz.devosmium.rl.AsciiRogue.items.Weapon;
 import xyz.devosmium.rl.AsciiRogue.util.Inventory;
 
 import java.awt.*;
@@ -68,6 +70,12 @@ public class Creature {
 
 	private Inventory inventory;
 	public Inventory getInventory() {return inventory;}
+
+	private Weapon weapon;
+	public Weapon weapon() { return weapon; }
+
+	private Armor armor;
+	public Armor armor() { return armor; }
 
 	public Creature(World world, char glyph, Color color, String name, int maxHp, int attack, int defense){
 		this.world = world;
@@ -239,5 +247,31 @@ public class Creature {
 
 	public boolean isPlayer() {
 		return glyph == '@';
+	}
+
+	public void unequip(Item item){
+		if (item == null) {
+			return;
+		}
+
+		if (item == armor) {
+			doAction("remove a" + item.name());
+			armor = null;
+		} else if (item == weapon) {
+			doAction("put away a" + item.name());
+			weapon = null;
+		}
+	}
+
+	public void equip(Weapon weap) {
+		unequip(weapon);
+		doAction("wield a " + weap.name());
+		weapon = weap;
+	}
+
+	public void equip(Armor armor) {
+		unequip(armor);
+		doAction("put on a " + armor.name());
+		this.armor = armor;
 	}
 }
