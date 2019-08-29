@@ -80,7 +80,7 @@ public class PlayScreen implements Screen {
 				creatureFactory.newBat(z);
 			}
 			for (int i = 0; i < 10; i++) {
-				creatureFactory.newZombie(z);
+				creatureFactory.newZombie(z, player);
 			}
 
 		}

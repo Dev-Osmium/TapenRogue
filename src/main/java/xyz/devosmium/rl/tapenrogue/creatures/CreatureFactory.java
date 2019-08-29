@@ -52,10 +52,10 @@ public class CreatureFactory {
 		return bat;
 	}
 
-	public Creature newZombie(int depth) {
+	public Creature newZombie(int depth, Creature player) {
 		Creature zombie = new Creature(world, 'z', AsciiPanel.red, "zombie", 15,5,0);
 		world.addAtEmptyLocation(zombie, depth);
-		new ZombAi(zombie);
+		new ZombAi(zombie, player);
 		return zombie;
 	}
 
