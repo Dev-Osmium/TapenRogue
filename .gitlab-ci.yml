@@ -35,7 +35,7 @@ test:
       - .gradle
 
 package:
-  stage: package
+  stage: build
   script: ./gradlew assemble
   artifacts:
     paths:
