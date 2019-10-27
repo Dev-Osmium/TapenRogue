@@ -39,7 +39,7 @@ test:
       - build
       - .gradle
 
-package:
+build-dist:
   stage: package
   script: ./gradlew assemble
   artifacts:
