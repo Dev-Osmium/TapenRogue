@@ -5,8 +5,12 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'application'
 }
 
+application {
+    mainClassName = "xyz.devosmium.rl.AsciiRogue.ApplicationMain"
+}
 repositories {
     mavenLocal()
     maven {
