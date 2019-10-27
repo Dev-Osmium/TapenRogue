@@ -13,6 +13,11 @@ variables:
 
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
+  
+stages:
+    - build/label
+    - test
+    - package
 
 build:
   stage: build/label
@@ -35,7 +40,7 @@ test:
       - .gradle
 
 package:
-  stage: build
+  stage: package
   script: ./gradlew assemble
   artifacts:
     paths:
