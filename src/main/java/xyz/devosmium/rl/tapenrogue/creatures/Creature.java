@@ -125,6 +125,7 @@ public class Creature {
 		while (xp > (int) (Math.pow(level, 1.5) * 20)) {
 			level++;
 			doAction("advance to level %d", level);
+			modifyHp(level * 2);
 		}
 	}
 
@@ -144,6 +145,7 @@ public class Creature {
 		this.inventory = new Inventory(20);
 		this.maxFood = 2000;
 		this.food = maxFood / 3 * 2;
+		this.level = 1;
 	}
 
 	public void moveBy(int mx, int my, int mz) {
