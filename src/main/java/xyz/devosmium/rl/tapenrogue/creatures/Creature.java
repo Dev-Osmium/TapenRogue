@@ -117,6 +117,20 @@ public class Creature {
 		return defenseValue + (armor == null ? 0 : armor.getDefenseValue());
 	}
 
+	private int xp;
+	public int xp() { return xp; }
+	public void modXp(int mod) {
+		xp += mod;
+		notify("You %s %d xp.", mod < 0 ? "lose" : "gain", mod);
+		while (xp > (int) (Math.pow(level, 1.5) * 20)) {
+			level++;
+			doAction("advance to level %d", level);
+		}
+	}
+
+	private int level;
+	public int level() { return level; }
+
 	public Creature(World world, char glyph, Color color, String name, int maxHp, int attack, int defense) {
 		this.world = world;
 		this.glyph = glyph;
