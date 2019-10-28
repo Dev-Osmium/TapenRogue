@@ -27,10 +27,26 @@ import xyz.devosmium.rl.tapenrogue.util.FieldOfView;
 public class CreatureFactory {
 	private World world;
 
+	/**
+	 * Creates a new Factory for Creatures
+	 * @param world The world to generate the creatures in
+	 * @author Owen Salter
+	 * @since 0.7.3
+	 * @see Creature
+	 */
 	public CreatureFactory(World world){
 		this.world = world;
 	}
 
+	/**
+	 * Creates a new Player, with a message buffer and FOV calculator
+	 * @param messages Message buffer
+	 * @param fov FOV calculator
+	 * @return The Player object
+	 * @author Owen Salter
+	 * @since 0.5.0
+	 * @see PlayerAi
+	 */
 	public Creature newPlayer(List<String> messages, FieldOfView fov){
 		Creature player = new Creature(world, '@', AsciiPanel.brightWhite, "player", 100, 20, 5);
 		world.addAtEmptyLocation(player, 0);
@@ -38,6 +54,14 @@ public class CreatureFactory {
 		return player;
 	}
 
+	/**
+	 * Creates a new fungus at the specified depth
+	 * @param depth The z-level to generate at
+	 * @return the Fungus object
+	 * @author Owen Salter
+	 * @since 0.5.0
+	 * @see FungusAi
+	 */
 	public Creature newFungus(int depth){
 		Creature fungus = new Creature(world, 'f', AsciiPanel.green, "fungus", 10, 0, 0);
 		world.addAtEmptyLocation(fungus, depth);
@@ -45,6 +69,14 @@ public class CreatureFactory {
 		return fungus;
 	}
 
+	/**
+	 * Creates a new bat at the specified depth
+	 * @param depth The z-level to generate at
+	 * @return The Bat object
+	 * @author Owen Salter
+	 * @since 0.5.0
+	 * @see BatAi
+	 */
 	public Creature newBat(int depth){
 		Creature bat = new Creature(world, 'b', AsciiPanel.yellow, "bat", 15, 5, 0);
 		world.addAtEmptyLocation(bat, depth);
@@ -52,6 +84,14 @@ public class CreatureFactory {
 		return bat;
 	}
 
+	/**
+	 * Creates a new Zombie at the specified depth and targeting the specified Player
+	 * @param depth The z-level to generate at
+	 * @param player the Player to target with Pathfinding
+	 * @author Owen Salter
+	 * @since 0.5.0
+	 * @see ZombAi
+	 */
 	public Creature newZombie(int depth, Creature player) {
 		Creature zombie = new Creature(world, 'z', AsciiPanel.red, "zombie", 15,5,0);
 		world.addAtEmptyLocation(zombie, depth);

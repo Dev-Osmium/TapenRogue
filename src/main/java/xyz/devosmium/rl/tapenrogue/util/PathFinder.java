@@ -29,6 +29,9 @@ public class PathFinder {
     private HashMap<Point, Point> parents;
     private HashMap<Point, Integer> totalCost;
 
+    /**
+     * Creates a new PathFinder with everything needed for it
+     */
     public PathFinder() {
         this.open = new ArrayList<Point>();
         this.closed = new ArrayList<Point>();
@@ -36,6 +39,12 @@ public class PathFinder {
         this.totalCost = new HashMap<Point, Integer>();
     }
 
+    /**
+     * Computes the cost of moving from a point to a point
+     * @param from The origin point
+     * @param to The destination point
+     * @see xyz.devosmium.rl.util.Point
+     */
     private int heuristicCost(Point from, Point to) {
         return Math.max(Math.abs(from.x - to.x), Math.abs(from.y - to.y));
     }
@@ -44,6 +53,9 @@ public class PathFinder {
         return parents.get(from) == null ? 0 : (1 + costToGetTo(parents.get(from)));
     }
 
+    /**
+     * Gets the total cost to get to a point from a point
+     */
     private int totalCost(Point from, Point to) {
         if (totalCost.containsKey(from))
             return totalCost.get(from);
@@ -58,6 +70,18 @@ public class PathFinder {
         totalCost.remove(child);
     }
 
+    /***
+     * Finds a path between an origin point and a destination point
+     * @return An ArrayList of Points to follow to get to the destination
+     * @param creature The creature to find a path for
+     * @param start The origin point
+     * @param end The destination
+     * @param maxTries The maximum number of times to attempt to find a path
+     * @author Owen Salter
+     * @since 0.7.4
+     * @see Creature
+     * @see Point
+     */
     public ArrayList<Point> findPath(Creature creature, Point start, Point end, int maxTries) {
         open.clear();
         closed.clear();
