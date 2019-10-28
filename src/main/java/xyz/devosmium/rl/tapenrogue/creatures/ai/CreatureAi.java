@@ -22,9 +22,15 @@ import xyz.devosmium.rl.tapenrogue.creatures.Creature;
 import xyz.devosmium.rl.tapenrogue.util.Line;
 import xyz.devosmium.rl.tapenrogue.util.Point;
 
+/**
+ * Base class for Creature control classes
+ */
 public class CreatureAi {
 	protected Creature creature;
 	
+	/**
+	 * Creates a new AI for a creature
+	 */
 	public CreatureAi(Creature creature){
 		this.creature = creature;
 		this.creature.setCreatureAi(this);
