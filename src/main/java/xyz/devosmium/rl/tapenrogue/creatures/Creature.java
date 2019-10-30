@@ -186,6 +186,9 @@ public class Creature {
 		doAction("attack the %s for %d damage", other.name, amount);
 
 		other.modifyHp(-amount);
+		if (other.hp() < 0) {
+			gainXp(other);
+		}
 	}
 
 	public void modifyHp(int amount) {
@@ -333,5 +336,11 @@ public class Creature {
 			doAction("put on a " + item.name());
 			armor = item;
 		}
+	}
+
+	public void gainXp(Creature other) {
+		int amount = other.maxHp() + other.attackValue() + other.defenseValue() - level * 2 + (int) (Math.random() * 10);
+
+		if (amount > 0) { modXp(amount); }
 	}
 }
