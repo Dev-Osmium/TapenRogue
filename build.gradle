@@ -9,7 +9,7 @@ plugins {
 }
 
 application {
-    mainClassName = "xyz.devosmium.rl.AsciiRogue.ApplicationMain"
+    mainClassName = "xyz.devosmium.rl.tapenrogue.ApplicationMain"
 }
 repositories {
     mavenLocal()
@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.trystan:AsciiPanel:-SNAPSHOT'
+    compile 'com.github.trystan:AsciiPanel:master-SNAPSHOT'
 }
 
 group = 'xyz.devosmium.rl'
