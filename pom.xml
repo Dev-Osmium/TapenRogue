@@ -4,14 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>xyz.devosmium.rl</groupId>
-	<artifactId>AsciiRogue</artifactId>
+	<artifactId>tapenrogue</artifactId>
 	<version>0.7.4-SNAPSHOT</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<main>xyz.devosmium.rl.AsciiRogue.ApplicationMain</main>
+		<main>xyz.devosmium.rl.tapenrogue.ApplicationMain</main>
 	</properties>
 	<repositories>
 		<repository>

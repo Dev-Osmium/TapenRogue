@@ -1,4 +1,6 @@
 {
     "java.configuration.updateBuildConfiguration": "disabled",
-    "licenser.projectName": "AsciiRogue"
+    "licenser.projectName": "tapenrogue",
+    "licenser.license": "GPLv3",
+    "licenser.author": "Owen Salter <owen@devosmium.xyz>"
 }

@@ -5,6 +5,9 @@ bin
 .idea
 target/
 bin/
+tapenrogue.tar
+tapenrogue.zip
+dependency-reduced-pom.xml
 
 .gradle/
 build/
