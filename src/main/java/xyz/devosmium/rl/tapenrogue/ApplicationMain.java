@@ -21,6 +21,9 @@ import javax.swing.JFrame;
 import asciiPanel.AsciiPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import xyz.devosmium.rl.tapenrogue.screens.*;
 
 public class ApplicationMain extends JFrame implements KeyListener {
@@ -29,10 +32,12 @@ public class ApplicationMain extends JFrame implements KeyListener {
 	private AsciiPanel terminal;
 	private Screen screen;
 	public static ApplicationMain mApp;
+	Logger logger;
 	
 	public ApplicationMain(){
 		super();
-		System.out.println("INFO: Calling Main Constructor");
+		logger = LoggerFactory.getLogger("mainLogger");
+		logger.info("Calling main constructor");
 		System.out.println("Creating terminal");
 		terminal = new AsciiPanel();
 		add(terminal);
