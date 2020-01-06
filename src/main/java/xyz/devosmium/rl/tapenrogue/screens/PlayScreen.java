@@ -43,6 +43,8 @@ public class PlayScreen implements Screen {
 
 	private Screen subscreen;
 
+	private final int DEPTH = 10;
+
 	public PlayScreen() {
 		screenWidth = 80;
 		screenHeight = 23;
@@ -123,7 +125,8 @@ public class PlayScreen implements Screen {
 	}
 
 	private void createWorld() {
-		world = new WorldBuilder(90, 32, 5).makeCaves().build();
+
+		world = new WorldBuilder(90, 32, DEPTH).makeCaves().build();
 	}
 
 	public int getScrollX() {
