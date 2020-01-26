@@ -259,7 +259,7 @@ public class Creature {
 	 */
 	public void rangedAttack(Creature target) {
 		Item weapon = weapon();
-		int distance = (int) Math.sqrt(Math.pow(target.x - this.x, 2) + Math.pow(target.y - this.y, 2));
+		int distance = getDistanceFromCreature(target);
 		if (distance <= weapon.getRange()) {
 			attack(target);
 		} else {
@@ -492,5 +492,9 @@ public class Creature {
 			doAction("put on a " + item.name());
 			armor = item;
 		}
+	}
+
+	private int getDistanceFromCreature(Creature other) {
+		return (int) Math.sqrt(Math.pow(other.x - this.x, 2) + Math.pow(other.y - this.y, 2));
 	}
 }
