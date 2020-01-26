@@ -75,12 +75,12 @@ tasks.withType(JavaCompile) {
       game = "asciirogue"
    
       windows {
-         binDirectory = "build/distributions/AsciiRogue-${project.version}.zip"
+         binDirectory = "${project.buildDir}/distributions/AsciiRogue-${project.version}.zip"
       }
       osx {
-         binDirectory = "build/distributions/AsciiRogue-${project.version}.tar"
+         binDirectory = "${project.buildDir}/build/distributions/AsciiRogue-${project.version}.tar"
       }
       linux {
-         binDirectory = "./build/distributions/AsciiRogue-${project.version}.tar"
+         binDirectory = "${project.buildDir}/build/distributions/AsciiRogue-${project.version}.tar"
       }
    }
