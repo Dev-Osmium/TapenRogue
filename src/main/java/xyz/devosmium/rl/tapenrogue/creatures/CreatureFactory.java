@@ -99,5 +99,20 @@ public class CreatureFactory {
 		return zombie;
 	}
 
+	/**
+	 * Creates a new Skeleton at the specified depth, targeting the player
+	 * @param depth the z-level to generate at
+	 * @param player the Player target
+	 * @author Owen Salter
+	 * @since 0.5.1
+	 * @see SkeletonAi
+	 */
+	public Creature newSkeleton(int depth, Creature player) {
+		Creature skeleton = new Creature(world, 's', AsciiPanel.red, "skeleton", 20,7,0);
+		world.addAtEmptyLocation(skeleton, depth);
+		new SkeletonAi(skeleton, player);
+		return skeleton;
+	}
+
 
 }
