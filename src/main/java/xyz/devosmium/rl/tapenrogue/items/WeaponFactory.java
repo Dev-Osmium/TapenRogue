@@ -26,10 +26,18 @@ public class WeaponFactory extends ItemFactory {
         super(world);
     }
 
-    public Item newDagger(int depth) {
+    public Item placeDagger(int depth) {
         Weapon item = new Weapon(')', AsciiPanel.brightWhite, "dagger");
         item.modAttackValue(10);
-        world.addAtEmptyLocation(item, depth);
+        placeInWorld(item, depth);
         return item;
+    }
+
+    public static Item newDagger() {
+        
+    }
+
+    private void placeInWorld(Weapon weapon, int depth) {
+        world.addAtEmptyLocation(weapon, depth);
     }
 }

@@ -34,6 +34,7 @@ public class CreatureAi {
 	public CreatureAi(Creature creature){
 		this.creature = creature;
 		this.creature.setCreatureAi(this);
+		
 	}
 
 	/**

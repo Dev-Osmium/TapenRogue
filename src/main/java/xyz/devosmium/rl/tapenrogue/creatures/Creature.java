@@ -494,7 +494,7 @@ public class Creature {
 		}
 	}
 
-	private int getDistanceFromCreature(Creature other) {
+	public int getDistanceFromCreature(Creature other) {
 		return (int) Math.sqrt(Math.pow(other.x - this.x, 2) + Math.pow(other.y - this.y, 2));
 	}
 }

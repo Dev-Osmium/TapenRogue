@@ -83,10 +83,10 @@ public class PlayScreen implements Screen {
 				creatureFactory.newZombie(z, player);
 			}
 
-			if (z >= world.depth() - 1) {
+			//if (z >= world.depth() - 1) {
 				for (int i = 0; i < 8; i++) {
 					creatureFactory.newSkeleton(z, player);
-				}
+			//	}
 			}
 
 		}
@@ -106,7 +106,7 @@ public class PlayScreen implements Screen {
 	private void createWeapons(WeaponFactory factory) {
 		for (int z = 0; z < world.depth(); z++) {
 			for (int i = 0; i < 2; i++) {
-				factory.newDagger(z);
+				factory.placeDagger(z);
 			}
 		}
 	}

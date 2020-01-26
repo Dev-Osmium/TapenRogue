@@ -18,7 +18,7 @@
         {
             "label": "run",
             "type": "shell",
-            "command" : "mvn exec:java",
+            "command" : "./gradlew run",
             "group": {
                 "kind": "build",
                 "isDefault": true
