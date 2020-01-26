@@ -24,6 +24,7 @@ import xyz.devosmium.rl.tapenrogue.World;
 import xyz.devosmium.rl.tapenrogue.creatures.ai.CreatureAi;
 import xyz.devosmium.rl.tapenrogue.items.Food;
 import xyz.devosmium.rl.tapenrogue.items.Item;
+import xyz.devosmium.rl.tapenrogue.items.Weapon;
 import xyz.devosmium.rl.tapenrogue.util.Inventory;
 
 public class Creature {
@@ -250,6 +251,20 @@ public class Creature {
 		doAction("attack the %s for %d damage", other.name, amount);
 
 		other.modifyHp(-amount);
+	}
+
+	/**
+	 * Figures out if the current creature can reach the target with its weapon, and then calls attack() to do the computation
+	 * @param target The creature to attack
+	 */
+	public void rangedAttack(Creature target) {
+		Item weapon = weapon();
+		int distance = (int) Math.sqrt(Math.pow(target.x - this.x, 2) + Math.pow(target.y - this.y, 2));
+		if (distance <= weapon.getRange()) {
+			attack(target);
+		} else {
+			doAction("You try to attack the %s but you're too far away!", target.name);
+		}
 	}
 
 	
