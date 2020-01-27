@@ -27,14 +27,17 @@ public class WeaponFactory extends ItemFactory {
     }
 
     public Item placeDagger(int depth) {
-        Weapon item = new Weapon(')', AsciiPanel.brightWhite, "dagger");
+        Weapon item = newDagger();
         item.modAttackValue(10);
         placeInWorld(item, depth);
         return item;
     }
 
-    public static Item newDagger() {
-        
+    public static Weapon newDagger() {
+        Weapon item = new Weapon(')', AsciiPanel.brightWhite, "dagger");
+        item.modAttackValue(10);
+        item.modRange(1);
+        return item;
     }
 
     private void placeInWorld(Weapon weapon, int depth) {

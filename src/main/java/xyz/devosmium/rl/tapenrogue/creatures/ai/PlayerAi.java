@@ -21,6 +21,8 @@ import java.util.List;
 
 import xyz.devosmium.rl.tapenrogue.Tile;
 import xyz.devosmium.rl.tapenrogue.creatures.Creature;
+import xyz.devosmium.rl.tapenrogue.items.Weapon;
+import xyz.devosmium.rl.tapenrogue.items.WeaponFactory;
 import xyz.devosmium.rl.tapenrogue.util.FieldOfView;
 
 public class PlayerAi extends CreatureAi {
@@ -32,6 +34,8 @@ public class PlayerAi extends CreatureAi {
         super(creature);
         this.messages = messages;
         this.fov = fov;
+        Weapon dagger = WeaponFactory.newDagger();
+        creature.equip(dagger);
     }
 
     public void onEnter(int x, int y, int z, Tile tile){
