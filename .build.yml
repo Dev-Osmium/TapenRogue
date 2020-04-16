@@ -1,0 +1,10 @@
+image: alpine/edge
+packages: 
+  - gradle
+  - openjdk8
+sources:
+  - https://git.forge.devosmium.xyz/~muirrum/TapenRogue
+tasks:
+  - build: |
+      cd TapenRogue
+      gradle build
