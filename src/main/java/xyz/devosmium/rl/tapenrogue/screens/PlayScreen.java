@@ -85,10 +85,10 @@ public class PlayScreen implements Screen {
 				creatureFactory.newZombie(z, player);
 			}
 
-			//if (z >= world.depth() - 1) {
+			if (z >= world.depth() - 1) {
 				for (int i = 0; i < 8; i++) {
 					creatureFactory.newSkeleton(z, player);
-			//	}
+				}
 			}
 
 		}
